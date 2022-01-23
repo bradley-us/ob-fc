@@ -1,0 +1,19 @@
+/* HEADER */
+.backBtn {
+    cursor: pointer;
+}
+
+#backBtn__backIcon {
+    font-size: 1em;
+}
+
+.backBtn__backTxt {
+    font-size: 1.3em;
+    margin-left: 10px
+}
+
+.st-container {
+    background-color: #fff;
+}
+
+/* FIN HEADER */
