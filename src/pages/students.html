@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .highlighted {
+            background: #c6c6c6;
+            color: #fff !important;
+        }
+    </style>
     <link rel="stylesheet" href="../styles/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <title>Students - Users</title>
+    <script type="module" src="../models/student.class.js"></script>
 </head>
-<body class="page-body">
+<body class="page-body" onload="doSearch()">
     <header class="header-main">
         <div class="logo">
             <h1 class="title">OpenBootcamp<span class="span-student"><b> | Alumnos</b></span></h1>
@@ -38,7 +45,8 @@
                             <i class="bi bi-search"></i>
                         </div>
                         <div class="searcher__i-txt">
-                            <input type="text" name="" id=""
+                            <input type="text" name="" id="srchInput"
+                            onkeyup="doSearch()"
                             placeholder="Buscar por nombre, email o palabra clave...">
                         </div>
                     </div>
@@ -50,80 +58,78 @@
 
             <div class="st-tab-container">
                 <div class="st-tab-container__content">
-                    <table class="st-tab">
+                    <table class="st-tab" id="table">
                         <thead>
                             <tr>
-                                <th id="stName" onclick="filterTable(0, 'str')">NOMBRE <i class="bi bi-arrow-down-up"></i></th>
-                                <th onclick="filterTable(1, 'str')">CIUDAD <i class="bi bi-arrow-down-up"></i></th>
-                                <th onclick="filterTable(2, 'str')">PAÍS <i class="bi bi-arrow-down-up"></i></th>
-                                <th onclick="filterTable(3, 'int')">TELÉFONO <i class="bi bi-arrow-down-up"></i></th>
-                                <th onclick="filterTable(4, 'str')">CORREO ELÉCTRONICO <i class="bi bi-arrow-down-up"></i></th>
-                                <th onclick="filterTable(5, 'str')">ETIQUETAS <i class="bi bi-arrow-down-up"></i></th>
+                                <th>NOMBRE <i class="bi bi-arrow-down-up"></i></th>
+                                <th>CIUDAD <i class="bi bi-arrow-down-up"></i></th>
+                                <th>PAÍS <i class="bi bi-arrow-down-up"></i></th>
+                                <th>TELÉFONO <i class="bi bi-arrow-down-up"></i></th>
+                                <th>CORREO ELÉCTRONICO <i class="bi bi-arrow-down-up"></i></th>
+                                <th>ETIQUETAS <i class="bi bi-arrow-down-up"></i></th>
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="results">
                             <tr>
-                                <td>Álvaro Sánchez Monteagudo</td>
-                                <td>Valencia</td>
-                                <td>España</td>
-                                <td>+34 644 83 29 12</td>
-                                <td>smonteagudo@gmail.com</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="tech-box-tab">
-                                        <span>HTML&CSS</span>
-                                        <span>HTML&CSS</span>
-                                        <span>HTML&CSS</span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
                                     </div>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Montenegro Alejandro</td>
-                                <td>Madrid</td>
-                                <td>Reino Unido</td>
-                                <td>+34 644 13 21 29</td>
-                                <td>halepo@gmail.com</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="tech-box-tab">
-                                        <span>REACT</span>
-                                        <span>ANGULAR</span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
                                     </div>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td>Ramirez Brown Bradley</td>
-                                <td>Paris</td>
-                                <td>Francia</td>
-                                <td>+34 621 01 00 52</td>
-                                <td>hi@gmail.com</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="tech-box-tab">
-                                        <span>PHP8</span>
-                                        <span>HTML&CSS</span>
-                                        <span>REACT</span>
-                                        <span>GRAPHIC DESIGN</span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
                                     </div>
                                 </td>
                             </tr>
-
 
                             <tr>
-                                <td>Echevarria Sánchez Mario</td>
-                                <td>Madrid</td>
-                                <td>España</td>
-                                <td>+34 722 81 00 00</td>
-                                <td>ploc@gmail.com</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="tech-box-tab">
-                                        <span>DOCKER</span>
-                                        <span>GITHUB</span>
-                                        <span>HTML5</span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
+                                        <span class="spanTD"></span>
                                     </div>
                                 </td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
@@ -209,7 +215,7 @@
             </div>
         </aside>
     </section>
-
+    
     <script src="../js/st-tab.js"></script>
 </body>
 </html>
