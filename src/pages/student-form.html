@@ -10,7 +10,7 @@
 </head>
 <body class="page-body">
     <header class="header-main">
-        <a class="backBtn">
+        <a class="backBtn" href="students.html" style="text-decoration: none; color: black">
             <i id="backBtn__backIcon" class="bi bi-backspace-fill"></i><span class="backBtn__backTxt"><b>volver</b></span>
         </a> 
 
@@ -30,24 +30,26 @@
     </header>
     <section class="container-st">
         <main>
-            <div>
-                <div>
-                    <div class="img-wrapper">
-                        <img src="../assets/img/avatar-user.png" alt="">
+            <div id="form-container-st" class="form-container-st">
+                <!-- <div class="form-container-st__header-form">
+                    <div class="header-form__img-wrapper">
+                        <img src="../assets/img/avatar-user.jpg" alt="">
                     </div>
-                    <div>
-                        <h3>Nombre Alumno</h3>
-                        <div><i class="bi bi-geo-alt"></i><span>Valencia | España</span></div>
+                    <div class="header-form__txt-wrapper">
+                        <h2>Nombre Alumno</h2>
+                        <div><i class="bi bi-geo-alt"></i><span> Valencia | España</span></div>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <label for="">Nombre y Apellidos</label>
-                        <input type="text" value="Nombre Alumno">
+                <div class="form-container__body-form">
+                    <div class="body-form__box">
+                        <div class="innerBox-1pc">
+                            <label for="">Nombre y Apellidos</label>
+                            <input type="text" value="Nombre Alumno">
+                        </div>
                     </div>
 
-                    <div>
-                        <div>
+                    <div class="body-form__box">
+                        <div class="box__innerBox-2pc">
                             <span>
                                 <label for="">Nº Teléfono</label>
                                 <input type="text" value="+34 000 00 00 00">
@@ -59,8 +61,8 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div>
+                    <div class="body-form__box">
+                        <div class="box__innerBox-2pc">
                             <span>
                                 <label for="">País</label>
                                 <select name="" id="">
@@ -85,8 +87,8 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div>
+                    <div class="body-form__box">
+                        <div class="box__innerBox-2pc">
                             <span>
                                 <label for="">Traslado</label>
                                 <select name="" id="">
@@ -108,9 +110,9 @@
                         </div>
                     </div>
 
-                    <div>
-                        <h3>Documento CV</h3>
-                        <div>
+                    <div class="body-form__box">
+                        <h5>Documento CV</h5>
+                        <div class="box__innerBox-2pc-CV">
                             <span>
                                 <a>
                                     <i class="bi bi-cloud-arrow-up"></i>
@@ -126,19 +128,25 @@
                         </div>
                     </div>
 
-                    <div>
-                        <label for="">Etiquetas</label>
-                        <input type="text" placeholder="Escribe para buscar">
-                        <div>
-                            <span>HTML&CSS <i class="bi bi-x-lg"></i></span>
-                            <span>REACT <i class="bi bi-x-lg"></i></span>
-                            <span>ANGULAR <i class="bi bi-x-lg"></i></span>
+                    <div class="body-form__box">
+                        <div class="innerBox-1pc">
+                            <label for="">Etiquetas</label>
+                            <input type="text" placeholder="Escribe para buscar">
+                            <div class="box__innerBox-tags">
+                                <span>HTML&CSS <i class="bi bi-x-lg"></i></span>
+                                <span>REACT <i class="bi bi-x-lg"></i></span>
+                                <span>ANGULAR <i class="bi bi-x-lg"></i></span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </main>
-        <aside></aside>
+        <aside class="container-aside">
+            <object id="object-data" style="border-radius: 20px;" height="100%" width="100%"></object>
+        </aside>
     </section>
+
+    <script src="../js/st-tab.js"></script>
 </body>
 </html>
