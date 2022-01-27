@@ -157,6 +157,10 @@
     font-size: 11px;
 }
 
+.st-tab thead tr {
+    cursor: pointer;
+}
+
 .st-tab thead tr th {
     cursor: pointer;
     text-align: left;
