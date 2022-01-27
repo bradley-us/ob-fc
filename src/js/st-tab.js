@@ -1,12 +1,3 @@
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
-// **************** CHANGE IF LINE 200 ***************** //
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
-
 class Student {
     id;
     name = '';
@@ -17,7 +8,7 @@ class Student {
     tags = [];
     moving = false;
     remote = true;
-    cv = '';
+    cv;
 
     constructor(id1, name1, city1, country1, phone1, email1, tags1, moving1, workType1, cv1) {
         this.id = id1;
@@ -205,249 +196,251 @@ const doSearch = () => {
     const trID = document.querySelectorAll("#trID")
         
 }
-
 // FIN
 
 
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
-// **************** CHANGE IF OR SKIP ***************** //
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
-//***************************************************** */
+function studentPageForm() {
+    const formContainerSt = document.getElementById("form-container-st");
+    stId = dataTD[0].id -1; // USEEEEEEEEEEEEEEER!!
 
-if(document.baseURI == "http://127.0.0.1:5500/ob/ob-fc/src/pages/student-form.html"){
-    function studentPageForm() {
-        const formContainerSt = document.getElementById("form-container-st");
-        stId = dataTD[0].id -1; // USEEEEEEEEEEEEEEER!!
-
-        function stCountry(id){
-            switch(dataTD[id].country){
-                case 'España':
-                    return (`<option value="spain" selected>España</option>
-                    <option value="french">Francia</option>
-                    <option value="uk">Reino Unido</option>`);
-                case 'Francia':
-                    return (`<option value="spain">España</option>
-                    <option value="france" selected>Francia</option>
-                    <option value="uk">Reino Unido</option>`);
-                case 'Reino Unido':
-                    return (`<option value="spain">España</option>
-                    <option value="france">Francia</option>
-                    <option value="uk" selected>Reino Unido</option>`);
-                default:
-                    return null;
-            }
+    function stCountry(id){
+        switch(dataTD[id].country){
+            case 'España':
+                return (`<option value="spain" selected>España</option>
+                <option value="french">Francia</option>
+                <option value="uk">Reino Unido</option>`);
+            case 'Francia':
+                return (`<option value="spain">España</option>
+                <option value="france" selected>Francia</option>
+                <option value="uk">Reino Unido</option>`);
+            case 'Reino Unido':
+                return (`<option value="spain">España</option>
+                <option value="france">Francia</option>
+                <option value="uk" selected>Reino Unido</option>`);
+            default:
+                return null;
         }
-
-        function stCity(id){
-            switch(dataTD[id].city){
-                case 'Valencia':
-                    return (`<option value="valencia" selected>Valencia</option>
-                    <option value="madrid">Madrid</option>
-                    <option value="london">Londres</option>
-                    <option value="paris">Paris</option>`);
-                case 'Madrid':
-                    return (`<option value="valencia" >Valencia</option>
-                    <option value="madrid" selected>Madrid</option>
-                    <option value="london">Londres</option>
-                    <option value="paris">Paris</option>`);
-                case 'Paris':
-                    return (`<option value="valencia" >Valencia</option>
-                    <option value="madrid">Madrid</option>
-                    <option value="london">Londres</option>
-                    <option value="paris" selected>Paris</option>`);
-                case 'Londres':
-                    return (`<option value="valencia" >Valencia</option>
-                    <option value="madrid">Madrid</option>
-                    <option value="london" selected>Londres</option>
-                    <option value="paris">Paris</option>`);
-                default:
-                    return null;
-            }
-        }
-
-        function stMoving(id){
-            switch(dataTD[id].moving){
-                case true:
-                    return (`<option value="transportNo">No</option>
-                    <option value="transportYes" selected>Sí</option>`);
-                case false:
-                    return (`<option value="transportNo" false>No</option>
-                    <option value="transportYes">Sí</option>`);
-                default:
-                    return null;
-            }
-        }
-
-        function stRemote(id){
-            switch(dataTD[id].moving){
-                case true:
-                    return (`<option value="remote" selected>Remoto</option>
-                    <option value="onSide">Presencial</option>`);
-                case false:
-                    return (`<option value="remote">Remoto</option>
-                    <option value="onSide" selected>Presencial</option>`);
-                default:
-                    return null;
-            }
-        }
-
-        const contentOfFormContainer = document.createElement("DIV");
-        contentOfFormContainer.innerHTML = `
-            <div class="form-container-st__header-form">
-                <div class="header-form__img-wrapper">
-                    <img src="../assets/img/avatar-user.jpg" alt="">
-                </div>
-                <div class="header-form__txt-wrapper">
-                    <h2>${dataTD[stId].name}</h2>
-                    <div><i class="bi bi-geo-alt"></i><span> ${dataTD[stId].city} | ${dataTD[0].country}</span></div>
-                </div>
-            </div>
-            <div class="form-container__body-form">
-                <div class="body-form__box">
-                    <div class="innerBox-1pc">
-                        <label for="">Nombre y Apellidos</label>
-                        <input type="text" value="${dataTD[stId].name}">
-                    </div>
-                </div>
-
-                <div class="body-form__box">
-                    <div class="box__innerBox-2pc">
-                        <span>
-                            <label for="">Nº Teléfono</label>
-                            <input type="text" value="${dataTD[stId].phone}">
-                        </span>
-                        <span>
-                            <label for="">Email</label>
-                            <input type="text" value="${dataTD[stId].email}">
-                        </span>
-                    </div>
-                </div>
-
-                <div class="body-form__box">
-                    <div class="box__innerBox-2pc">
-                        <span>
-                            <label for="">País</label>
-                            <select name="" id="">
-                                <optgroup>
-                                    ${stCountry(stId)}
-                                </optgroup>
-                            </select>
-                        </span>
-                        <span>
-                            <label for="">Ciudad</label>
-                            <select name="" id="">
-                                <optgroup>
-                                    ${stCity(stId)}
-                                </optgroup>
-                            </select>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="body-form__box">
-                    <div class="box__innerBox-2pc">
-                        <span>
-                            <label for="">Traslado</label>
-                            <select name="" id="">
-                                <optgroup>
-                                    ${stMoving(stId)}
-                                </optgroup>
-                            </select>
-                        </span>
-                        <span>
-                            <label for="">Presencialidad</label>
-                            <select name="" id="">
-                                <optgroup>
-                                    ${stRemote(stId)}
-                                </optgroup>
-                            </select>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="body-form__box">
-                    <h5>Documento CV</h5>
-                    <div class="box__innerBox-2pc-CV">
-                        <span>
-                            <form id="uploadCVFORM">
-                            <label> <i class="bi bi-cloud-arrow-up"></i> Subir de nuevo
-                                <input type="file" name="uploadCV" style="display:inline-block">
-                            </label>
-                                <button type="submit">Subir</button>
-                            </form>
-                        </span>
-                        <span>
-                            <a>
-                                <i class="bi bi-trash"></i>
-                                    Borrar
-                            </a>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="body-form__box">
-                    <div class="innerBox-1pc">
-                        <label for="">Etiquetas</label>
-                        <input type="text" placeholder="Escribe para buscar">
-                        <div class="box__innerBox-tags">
-                            ${dataTD[stId].tags[0] ?
-                                `<span>${dataTD[stId].tags[0]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[1] ?
-                                `<span>${dataTD[stId].tags[1]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[2] ?
-                                `<span>${dataTD[stId].tags[2]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[3] ?
-                                `<span>${dataTD[stId].tags[3]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[4] ?
-                                `<span>${dataTD[stId].tags[4]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[5] ?
-                                `<span>${dataTD[stId].tags[5]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                            ${dataTD[stId].tags[6] ?
-                                `<span>${dataTD[stId].tags[6]} <i class="bi bi-x-lg"></i></span>`:
-                                `<span style="display: none"></span>`
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        formContainerSt.append(contentOfFormContainer);
-
-        document.addEventListener("DOMContentLoaded", () => {
-            let form = document.getElementById("uploadCVFORM");
-
-            form.addEventListener("submit", function(e) {
-                e.preventDefault();
-                uploadCV(this);
-            });
-        })
-
-        function uploadCV(form){
-            // Request
-            let request = new XMLHttpRequest();
-            request.open('POST', '../services/uploadFile.php')
-            request.send(new FormData(form))
-        }
-        const objectDATA = document.getElementById('object-data');
-        objectDATA.setAttribute('data', dataTD[0].cv);
     }
 
-    studentPageForm();
+    function stCity(id){
+        switch(dataTD[id].city){
+            case 'Valencia':
+                return (`<option value="valencia" selected>Valencia</option>
+                <option value="madrid">Madrid</option>
+                <option value="london">Londres</option>
+                <option value="paris">Paris</option>`);
+            case 'Madrid':
+                return (`<option value="valencia" >Valencia</option>
+                <option value="madrid" selected>Madrid</option>
+                <option value="london">Londres</option>
+                <option value="paris">Paris</option>`);
+            case 'Paris':
+                return (`<option value="valencia" >Valencia</option>
+                <option value="madrid">Madrid</option>
+                <option value="london">Londres</option>
+                <option value="paris" selected>Paris</option>`);
+            case 'Londres':
+                return (`<option value="valencia" >Valencia</option>
+                <option value="madrid">Madrid</option>
+                <option value="london" selected>Londres</option>
+                <option value="paris">Paris</option>`);
+            default:
+                return null;
+        }
+    }
+
+    function stMoving(id){
+        switch(dataTD[id].moving){
+            case true:
+                return (`<option value="transportNo">No</option>
+                <option value="transportYes" selected>Sí</option>`);
+            case false:
+                return (`<option value="transportNo" false>No</option>
+                <option value="transportYes">Sí</option>`);
+            default:
+                return null;
+        }
+    }
+
+    function stRemote(id){
+        switch(dataTD[id].moving){
+            case true:
+                return (`<option value="remote" selected>Remoto</option>
+                <option value="onSide">Presencial</option>`);
+            case false:
+                return (`<option value="remote">Remoto</option>
+                <option value="onSide" selected>Presencial</option>`);
+            default:
+                return null;
+        }
+    }
+
+    const contentOfFormContainer = document.createElement("DIV");
+    contentOfFormContainer.innerHTML = `
+        <div class="form-container-st__header-form">
+            <div class="header-form__img-wrapper">
+                <img src="../assets/img/avatar-user.jpg" alt="">
+            </div>
+            <div class="header-form__txt-wrapper">
+                <h2>${dataTD[stId].name}</h2>
+                <div><i class="bi bi-geo-alt"></i><span> ${dataTD[stId].city} | ${dataTD[0].country}</span></div>
+            </div>
+        </div>
+        <div class="form-container__body-form">
+            <div class="body-form__box">
+                <div class="innerBox-1pc">
+                    <label for="">Nombre y Apellidos</label>
+                    <input type="text" value="${dataTD[stId].name}">
+                </div>
+            </div>
+
+            <div class="body-form__box">
+                <div class="box__innerBox-2pc">
+                    <span>
+                        <label for="">Nº Teléfono</label>
+                        <input type="text" value="${dataTD[stId].phone}">
+                    </span>
+                    <span>
+                        <label for="">Email</label>
+                        <input type="text" value="${dataTD[stId].email}">
+                    </span>
+                </div>
+            </div>
+
+            <div class="body-form__box">
+                <div class="box__innerBox-2pc">
+                    <span>
+                        <label for="">País</label>
+                        <select name="" id="">
+                            <optgroup>
+                                ${stCountry(stId)}
+                            </optgroup>
+                        </select>
+                    </span>
+                    <span>
+                        <label for="">Ciudad</label>
+                        <select name="" id="">
+                            <optgroup>
+                                ${stCity(stId)}
+                            </optgroup>
+                        </select>
+                    </span>
+                </div>
+            </div>
+
+            <div class="body-form__box">
+                <div class="box__innerBox-2pc">
+                    <span>
+                        <label for="">Traslado</label>
+                        <select name="" id="">
+                            <optgroup>
+                                ${stMoving(stId)}
+                            </optgroup>
+                        </select>
+                    </span>
+                    <span>
+                        <label for="">Presencialidad</label>
+                        <select name="" id="">
+                            <optgroup>
+                                ${stRemote(stId)}
+                            </optgroup>
+                        </select>
+                    </span>
+                </div>
+            </div>
+
+            <div class="body-form__box">
+                <h5>Documento CV</h5>
+                <div class="box__innerBox-2pc-CV">
+                    <span>
+                        <label> <i class="bi bi-cloud-arrow-up"></i> Subir de nuevo
+                            <input id="inputFile" type="file">
+                        </label>
+                    </span>
+                    <span>
+                        <a id="removeCV">
+                            <i class="bi bi-trash"></i>
+                                Borrar
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="body-form__box">
+                <div class="innerBox-1pc">
+                    <label for="">Etiquetas</label>
+                    <input type="text" placeholder="Escribe para buscar">
+                    <div class="box__innerBox-tags">
+                        ${dataTD[stId].tags[0] ?
+                            `<span>${dataTD[stId].tags[0]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[1] ?
+                            `<span>${dataTD[stId].tags[1]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[2] ?
+                            `<span>${dataTD[stId].tags[2]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[3] ?
+                            `<span>${dataTD[stId].tags[3]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[4] ?
+                            `<span>${dataTD[stId].tags[4]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[5] ?
+                            `<span>${dataTD[stId].tags[5]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                        ${dataTD[stId].tags[6] ?
+                            `<span>${dataTD[stId].tags[6]} <i class="bi bi-x-lg"></i></span>`:
+                            `<span style="display: none"></span>`
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    formContainerSt.append(contentOfFormContainer);
+
+
+    // UPLOAD CV
+    const inputFile = document.querySelector("#inputFile");
+    var fileList;
+    
+    inputFile.addEventListener("change", (e) => {
+        if (inputFile.files.length > 0) {
+            fileList = [...inputFile.files];
+            let fileCVNAME = "../assets/tmp/pdf/" + fileList[0].name;
+            dataTD[stId].cv = fileCVNAME;
+            let formData = new FormData();
+            formData.append("myCV", fileList[0]); // En la posición 0; es decir, el primer elemento
+            fetch("../services/uploadFile.php", {
+                method: 'POST',
+                body: formData,
+            })
+                .then(respuesta => respuesta.text())
+                .then(decodificado => {
+                    console.log(decodificado);
+                });
+
+            dataTD[stId].cv = fileCVNAME;
+            const objectDATA = document.getElementById('object-data');
+            objectDATA.setAttribute('data', dataTD[stId].cv);
+            e.preventDefault();
+        }
+    });
+
+    const e_a_removeCV = document.getElementById("removeCV");
+    e_a_removeCV.addEventListener("click", () => {
+        if(fileList.length > 0){
+            location.reload();
+        }
+    });
 }
+
+studentPageForm();
