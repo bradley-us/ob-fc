@@ -69,24 +69,29 @@
                 </div>
             </div>
         </main>
+
         <aside>
             <div class="aside">
                 <div class="aside__filter">
                     <h3>Filtro de búsqueda</h3>
-                    <span><i class="bi bi-trash-fill"></i></span>
+                    <span><i onclick="deleteAll()" class="bi bi-trash-fill"></i></span>
 
                     <div class="filter__pc">
                         <h4>Etiquetas</h4>
                         <div class="filter__pc_content">
-                            <div class="__filter__pc__dv">
+                            <div id="__filter__pc__dv" class="__filter__pc__dv">
                                 <input
                                     type="text"
                                     name="tags"
                                     id="i-tags"
                                     placeholder="Escribe para buscar..."
                                 >
-                                <i class="bi bi-chevron-down"></i>
+                                <div id="showListTech" class="i-i-tags"><i class="bi bi-chevron-down"></i></div>
+
+                                <ul id="box-search"></ul>
                             </div>
+                            
+                            <div id="cnt-span" class="box__innerBox-tags"></div>
                         </div>
                     </div>
 
@@ -121,12 +126,12 @@
                         <h4>Presencial / A distancia</h4>
                         <div class="filter__pc_content">
                             <div class="pc__checkbox-box">
-                                <input type="checkbox" name="" id="">
-                                <label for=""> Presencial</label>
+                                <input type="checkbox" onclick="cbxPhysicalJobTrue()" value="phyJob" id="cbxPhysicalJobTrue">
+                                <label> Presencial</label>
                             </div>
                             <div class="pc__checkbox-box">
-                                <input type="checkbox" name="" id="">
-                                <label for=""> En remoto</label>
+                                <input type="checkbox" onclick="cbxPhysicalJobFalse()" value="phyJob" id="cbxPhysicalJobFalse">
+                                <label> En remoto</label>
                             </div>
                         </div>
                     </div>
@@ -135,12 +140,12 @@
                         <h4>Posibilidad traslado</h4>
                         <div class="filter__pc_content">
                             <div class="pc__checkbox-box">
-                                <input type="checkbox" name="" id="">
-                                <label for=""> Sí</label>
+                                <input type="checkbox" onclick="cbxMovingJobTrue()" value="movJob" id="cbxMovingJobTrue">
+                                <label> Sí</label>
                             </div>
                             <div class="pc__checkbox-box">
-                                <input type="checkbox" name="" id="">
-                                <label for=""> No</label>
+                                <input type="checkbox" onclick="cbxMovingJobFalse()" value="movJob" id="cbxMovingJobFalse">
+                                <label> No</label>
                             </div>
                         </div>
                     </div>

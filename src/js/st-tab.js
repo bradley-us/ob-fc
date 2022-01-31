@@ -1,3 +1,20 @@
+const TECH = {
+    HTMLANDCSS: 'HTML&CSS',
+    REACT: 'REACT',
+    ANGULAR: 'ANGULAR',
+    PHP: 'PHP',
+    DOCKER: 'DOCKER',
+    GITHUB: 'GITHUB',
+    GITLAB: 'GITLAB',
+    NEXTJS: 'NEXTJS',
+    GRAPHICDESIGN: 'GRAPHIC DESIGN',
+    JAVASCRIPT: 'JAVASCRIPT',
+    VUEJS: 'VUEJS',
+    TYPESCRIPT: 'TYPESCRIPT',
+    RUBYONRAILS: 'RUBY ON RAILS',
+    PYTHON: 'PYTHON'
+}
+
 class Student {
     id;
     name = '';
@@ -32,13 +49,12 @@ const st_1 = new Student(
     "+34 644 83 29 12",
     "smonteagudo@gmail.com",
     [
-        "HTML&CSS",
-        "REACT",
-        "ANGULAR"
+        TECH.HTMLANDCSS,
+        TECH.REACT,
+        TECH.ANGULAR
     ],
     true,
-    true,
-    "../assets/tmp/pdf/sanchez_alvaro.pdf"
+    true
 )
 
 const st_2 = new Student(
@@ -46,11 +62,11 @@ const st_2 = new Student(
     "Montenegro Sánchez Alejandro",
     "Londres",
     "Reino Unido",
-    "+34 644 13 21 00",
+    "+44 644 13 21 00",
     "halepo@gmail.com",
     [
-        "REACT",
-        "ANGULAR"
+        TECH.REACT,
+        TECH.ANGULAR
     ],
     false,
     true
@@ -61,13 +77,13 @@ const st_3 = new Student(
     "Ramirez Brown Bradley",
     "Paris",
     "Francia",
-    "+34 621 01 00 52",
+    "+33 621 01 00 52",
     "hi@gmail.com",
     [
-        "PHP8",
-        "HTML&CSS",
-        "REACT",
-        "GRAPHIC DESIGN"
+        TECH.HTMLANDCSS,
+        TECH.PHP,
+        TECH.REACT,
+        TECH.GRAPHICDESIGN
     ],
     false,
     false
@@ -79,17 +95,520 @@ const st_4 = new Student(
     "Madrid",
     "España",
     "+34 722 81 00 00",
-    "ploc@gmail.com",
+    "tuldsc@gmail.com",
     [
-        "DOCKER",
-        "GITHUB",
-        "HTML5"
+        TECH.HTMLANDCSS,
+        TECH.DOCKER,
+        TECH.GITHUB
     ],
     true,
     false
 )
 
-const dataTD = [st_1, st_2, st_3, st_4];
+const st_5 = new Student(
+    5,
+    "Pérez Martínez Marta",
+    "Valencia",
+    "España",
+    "+34 722 81 00 00",
+    "ploc@gmail.com",
+    [   
+        TECH.HTMLANDCSS,
+        TECH.GITLAB,
+        TECH.NEXTJS,
+        TECH.REACT,
+        TECH.ANGULAR,
+        TECH.PHP
+    ],
+    true,
+    true
+)
+
+const st_6 = new Student(
+    6,
+    "Ramirez Barco Pedro",
+    "Londres",
+    "Reino Unido",
+    "+44 710 20 29 19",
+    "tulok@gmail.com",
+    [
+        TECH.REACT,
+        TECH.ANGULAR,
+        TECH.PHP
+    ],
+    true,
+    false
+)
+
+const st_7 = new Student(
+    7,
+    "Tarajal Múños Lorena",
+    "Paris",
+    "Francia",
+    "+33 621 00 00 00",
+    "edsakd@gmail.com",
+    [   
+        TECH.HTMLANDCSS,
+        TECH.REACT,
+        TECH.ANGULAR
+    ],
+    true,
+    true
+)
+
+const st_8 = new Student(
+    8,
+    "Duarte Marcos",
+    "Londres",
+    "Reino Unido",
+    "+44 722 81 00 00",
+    "marcosduarte@gmail.com",
+    [
+        TECH.JAVASCRIPT,
+        TECH.GITLAB,
+        TECH.VUEJS,
+        TECH.PHP,
+        TECH.ANGULAR
+    ],
+    true,
+    false
+)
+
+const st_9 = new Student(
+    9,
+    "Fortuna Pacho",
+    "Valencia",
+    "España",
+    "+34 655 55 21 06",
+    "terc@gmail.com",
+    [   
+        TECH.HTMLANDCSS,
+        TECH.DOCKER,
+        TECH.GITHUB,
+        TECH.TYPESCRIPT
+    ],
+    false,
+    false
+)
+
+const st_10 = new Student(
+    10,
+    "Hernández Daniel",
+    "Madrid",
+    "España",
+    "+34 677 63 24 12",
+    "daniel.hernandez@gmail.com",
+    [
+        TECH.HTMLANDCSS,
+        TECH.DOCKER,
+        TECH.GITLAB,
+        TECH.GITLAB,
+        TECH.RUBYONRAILS,
+        TECH.PYTHON
+    ],
+    true,
+    false
+)
+
+const dataTD = [st_1, st_2, st_3, st_4, st_5, st_6, st_7, st_8, st_9, st_10];
+
+
+
+function cbxPhysicalJobTrue() {
+    const cbxPhysicalJobTrueInput = document.getElementById('cbxPhysicalJobTrue');
+    const cbxPhysicalJobFalseInput = document.getElementById('cbxPhysicalJobFalse');
+
+
+    if(cbxPhysicalJobTrueInput.checked == true) {
+        cbxPhysicalJobFalseInput.checked = false;
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let remote = student.remote;
+
+            if(
+                (remote)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    } else {
+        doSearch();
+    }
+}
+
+function cbxMovingJobTrue() {
+    const cbxMovingJobTrueInput = document.getElementById('cbxMovingJobTrue');
+    const cbxMovingJobFalseInput = document.getElementById('cbxMovingJobFalse');
+
+
+    if(cbxMovingJobTrueInput.checked == true) {
+        cbxMovingJobFalseInput.checked = false;
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let moving = student.moving;
+
+            if(
+                (moving)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    } else {
+        doSearch();
+    }
+}
+
+function cbxPhysicalJobFalse() {
+    const cbxPhysicalJobTrueInput = document.getElementById('cbxPhysicalJobTrue');
+    const cbxPhysicalJobFalseInput = document.getElementById('cbxPhysicalJobFalse');
+
+    if (cbxPhysicalJobFalseInput.checked == true){
+        cbxPhysicalJobTrueInput.checked = false;
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let remote = student.remote;
+
+            if(
+                (!remote)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    } else {
+        doSearch();
+    }
+}
+
+function cbxMovingJobFalse() {
+    const cbxMovingJobTrueInput = document.getElementById('cbxMovingJobTrue');
+    const cbxMovingJobFalseInput = document.getElementById('cbxMovingJobFalse');
+
+
+    if(cbxMovingJobFalseInput.checked == true) {
+        cbxMovingJobTrueInput.checked = false;
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let moving = student.moving;
+
+            if(
+                (!moving)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    } else {
+        doSearch();
+    }
+}
+
+
+
+const inputSearchTag = document.getElementById('i-tags');
+inputSearchTag.addEventListener("keyup", filter);
+document.getElementById('showListTech').addEventListener("click", showListTech);
+const borderBoxSearchTag = document.getElementById('__filter__pc__dv');
+const cnt_span = document.getElementById('cnt-span');
+
+const result = document.querySelector('#results');
+
+const boxSearchTag = document.getElementById('box-search');
+boxSearchTag.innerHTML += `
+    <li>${TECH.HTMLANDCSS}</li>
+    <li>${TECH.REACT}</li>
+    <li>${TECH.ANGULAR}</li>
+    <li>${TECH.PHP}</li>
+    <li>${TECH.DOCKER}</li>
+    <li>${TECH.GITHUB}</li>
+    <li>${TECH.GITLAB}</li>
+    <li>${TECH.NEXTJS}</li>
+    <li>${TECH.GRAPHICDESIGN}</li>
+    <li>${TECH.JAVASCRIPT}</li>
+    <li>${TECH.VUEJS}</li>
+    <li>${TECH.TYPESCRIPT}</li>
+    <li>${TECH.RUBYONRAILS}</li>
+    <li>${TECH.PYTHON}</li>
+`
+
+function showListTech() {
+    liHTMLCOLLECTION = boxSearchTag.getElementsByTagName('li');
+    liList = [...liHTMLCOLLECTION];
+    liList.forEach(li => {
+        li.addEventListener("click", function(){
+
+            if (liTextArr.includes(li.innerText)) {
+                console.log("Already exists!")
+            } else {
+                tmpLiText.push(li.innerText);
+                const tmpLiTextArr = new Set(tmpLiText);
+                let liTextArr = [...tmpLiTextArr];
+
+                let newSpan = "";
+                liTextArr.forEach(liTextArrValue => {
+                    newSpan += `<span>${liTextArrValue}</span>`;
+                    cnt_span.innerHTML = newSpan;
+                })
+
+                filterBySpanBox();
+                function filterBySpanBox(){
+                    result.innerHTML = "";
+
+                    for(let student of dataTD) {
+                        let st_tags = student.tags.toString().toUpperCase();
+
+                        if(
+                            (st_tags.indexOf(liTextArr.join(',')) !== -1)
+                        ) {
+
+
+                            result.innerHTML += `
+                                <tr id="trID">
+                                    <td>${student.name}</td>
+                                    <td>${student.city}</td>
+                                    <td>${student.country}</td>
+                                    <td>${student.phone}</td>
+                                    <td>${student.email}</td>
+                                    <td>
+                                        <div class="tech-box-tab">
+                                            <span class="spanTD">${student.tags[0]}</span>
+                                            <span class="spanTD">${student.tags[1]}</span>
+                                            ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                                        </div>
+                                    </td>
+                                </tr>
+                            `
+                        }
+                    }
+                }
+            }
+            boxSearchTag.classList.remove('showBox');
+        });
+    });
+
+    boxSearchTag.classList.toggle('showBox');
+    if (boxSearchTag.classList.contains('showBox')) {
+        borderBoxSearchTag.style.borderBottomLeftRadius = "0px";
+        borderBoxSearchTag.style.borderBottomRightRadius = "0px";
+    } else {
+        borderBoxSearchTag.style.borderBottomLeftRadius = "8px";
+        borderBoxSearchTag.style.borderBottomRightRadius = "8px";
+    };
+    
+};
+
+var tmpLiText = [];
+var liTextArr = [];
+
+function filter() {
+    inputSearchTagValue = inputSearchTag.value.toUpperCase();
+    liHTMLCOLLECTION = boxSearchTag.getElementsByTagName('li');
+    liList = [...liHTMLCOLLECTION];
+
+    // Running through the Elements to filter by means of li Elements
+    for (let i = 0; i < liList.length; i++) {
+        liText = liList[i].innerText;
+
+        if (liText.toUpperCase().indexOf(inputSearchTagValue) > -1) {
+            borderBoxSearchTag.style.borderBottomLeftRadius = "0px";
+            borderBoxSearchTag.style.borderBottomRightRadius = "0px";
+            boxSearchTag.classList.add("showBox");
+            liList[i].style.display = "";
+
+            if (inputSearchTagValue === "") {
+                boxSearchTag.classList.toggle("showBox");
+            }
+
+        } else {
+            liList[i].style.display = "none";
+        }
+
+    }
+
+    liList.forEach(li => {
+        li.addEventListener("click", function(){
+
+            if (liTextArr.includes(li.innerText)) {
+                console.log("Already exists!")
+            } else {
+                tmpLiText.push(li.innerText);
+                const tmpLiTextArr = new Set(tmpLiText);
+                let liTextArr = [...tmpLiTextArr];
+
+                let newSpan = "";
+                liTextArr.forEach(liTextArrValue => {
+                    newSpan += `<span>${liTextArrValue}</span>`;
+                    cnt_span.innerHTML = newSpan;
+                    boxSearchTag.classList.remove('showBox');
+                })
+                filterBySpanBox();
+                function filterBySpanBox(){
+                    result.innerHTML = "";
+
+                    for(let student of dataTD) {
+                        let st_tags = student.tags.toString().toUpperCase();
+
+                        if(
+                            (st_tags.indexOf(liTextArr.join(',')) !== -1)
+                        ) {
+
+
+                            result.innerHTML += `
+                                <tr id="trID">
+                                    <td>${student.name}</td>
+                                    <td>${student.city}</td>
+                                    <td>${student.country}</td>
+                                    <td>${student.phone}</td>
+                                    <td>${student.email}</td>
+                                    <td>
+                                        <div class="tech-box-tab">
+                                            <span class="spanTD">${student.tags[0]}</span>
+                                            <span class="spanTD">${student.tags[1]}</span>
+                                            ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                            ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                                        </div>
+                                    </td>
+                                </tr>
+                            `
+                        }
+                    }
+                }
+                
+            }
+
+        });
+    });
+};
+
 
 function sortTableByColumn(table, column, asc = true) {
     const dirModifier = asc ? 1 : -1;
@@ -129,7 +648,6 @@ document.querySelectorAll("table th").forEach(headerCell => {
 
 // FIN
 
-const result = document.querySelector('#results');
 /**
  * SEARCH FILTER
  */
@@ -157,7 +675,6 @@ const doSearch = () => {
 
 
             result.innerHTML += `
-            <form id="trForm" method="POST" action="../pages/student-form.html/${student.id}">
                 <tr id="trID">
                     <td>${student.name}</td>
                     <td>${student.city}</td>
@@ -182,21 +699,27 @@ const doSearch = () => {
                         </div>
                     </td>
                 </tr>
-            </form>
-            `
-        }
-
-        if(result.innerHTML === '') {
-            result.innerHTML += `
-                <div style="font-size: 16px; font-weight: bold; padding: 15px;">Estudiante no encontrado</div>
             `
         }
     }
+}
 
-    const trID = document.querySelectorAll("#trID")
-        
+function deleteAll() {
+    var cbxPhysicalJobTrueInput = document.getElementById('cbxPhysicalJobTrue');
+    cbxPhysicalJobTrueInput.checked = false;
+    var cbxPhysicalJobFalseInput = document.getElementById('cbxPhysicalJobFalse');
+    cbxPhysicalJobFalseInput.checked = false;
+    var cbxMovingJobTrueInput = document.getElementById('cbxMovingJobTrue');
+    cbxMovingJobTrueInput.checked = false;
+    var cbxMovingJobFalseInput = document.getElementById('cbxMovingJobFalse');
+    cbxMovingJobFalseInput.checked = false;
+    cnt_span.innerHTML = '';
+    tmpLiText = [];
+    liTextArr = [];
+    doSearch();
 }
 // FIN
+
 
 
 function studentPageForm() {
