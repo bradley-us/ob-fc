@@ -287,6 +287,8 @@ ul#box-search li:last-child {
     border-bottom-left-radius: 8px;
 }
 
+#cnt-span {display: flex; flex-wrap: wrap;}
+
 .filter__pc_content select {
     appearance: none;
     padding: 7px;
