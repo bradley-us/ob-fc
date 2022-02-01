@@ -98,11 +98,12 @@
                     <div class="filter__pc">
                         <h4>País</h4>
                         <div class="filter__pc_content">
-                            <select name="" id="">
+                            <select onchange="slctCountry()" id="slctCountry">
                                 <optgroup>
-                                    <option value="spain">España</option>
-                                    <option value="french">Francia</option>
-                                    <option value="uk">Reino Unido</option>
+                                    <option value="" disabled selected>Selecciona país</option>
+                                    <option value="españa">España</option>
+                                    <option value="francia">Francia</option>
+                                    <option value="reino unido">Reino Unido</option>
                                 </optgroup>
                             </select>
                         </div>
@@ -111,11 +112,12 @@
                     <div class="filter__pc">
                         <h4>Ciudad</h4>
                         <div class="filter__pc_content">
-                            <select name="" id="">
+                            <select onchange="slctCity()" id="slctCity">
                                 <optgroup>
+                                    <option value="" disabled selected>Selecciona ciudad</option>
                                     <option value="valencia">Valencia</option>
                                     <option value="madrid">Madrid</option>
-                                    <option value="london">Londres</option>
+                                    <option value="londres">Londres</option>
                                     <option value="paris">Paris</option>
                                 </optgroup>
                             </select>

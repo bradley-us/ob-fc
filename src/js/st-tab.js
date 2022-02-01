@@ -218,7 +218,6 @@ function cbxPhysicalJobTrue() {
     const cbxPhysicalJobTrueInput = document.getElementById('cbxPhysicalJobTrue');
     const cbxPhysicalJobFalseInput = document.getElementById('cbxPhysicalJobFalse');
 
-
     if(cbxPhysicalJobTrueInput.checked == true) {
         cbxPhysicalJobFalseInput.checked = false;
         result.innerHTML = "";
@@ -411,6 +410,120 @@ function cbxMovingJobFalse() {
     } else {
         doSearch();
     }
+}
+
+function slctCity() {
+    const slctCity = document.getElementById('slctCity').value.toLowerCase();
+    switch (slctCity) {
+        case "valencia":
+            filterByCity();
+        case "londres":
+            filterByCity();
+        case "paris":
+            filterByCity();
+        case "madrid":
+            filterByCity();
+        default:
+            break;
+    }
+
+    function filterByCity() {
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let city = student.city.toLowerCase();
+
+            if(
+                (slctCity == city)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    }
+    
+}
+
+function slctCountry() {
+    const slctCountry = document.getElementById('slctCountry').value.toLowerCase();
+    switch (slctCountry) {
+        case "españa":
+            filterByCountry();
+        case "reino unido":
+            filterByCountry();
+        case "francia":
+            filterByCountry();
+        default:
+            break;
+    }
+
+    function filterByCountry() {
+        result.innerHTML = "";
+
+        for(let student of dataTD) {
+            let country = student.country.toLowerCase();
+
+            if(
+                (slctCountry == country)
+            ) {
+
+
+                result.innerHTML += `
+                    <tr id="trID">
+                        <td>${student.name}</td>
+                        <td>${student.city}</td>
+                        <td>${student.country}</td>
+                        <td>${student.phone}</td>
+                        <td>${student.email}</td>
+                        <td>
+                            <div class="tech-box-tab">
+                                <span class="spanTD">${student.tags[0]}</span>
+                                <span class="spanTD">${student.tags[1]}</span>
+                                ${student.tags[2] ? `<span class="spanTD">${student.tags[2]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[3] ? `<span class="spanTD">${student.tags[3]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[4] ? `<span class="spanTD">${student.tags[4]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[5] ? `<span class="spanTD">${student.tags[5]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[6] ? `<span class="spanTD">${student.tags[6]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[7] ? `<span class="spanTD">${student.tags[7]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[8] ? `<span class="spanTD">${student.tags[8]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[9] ? `<span class="spanTD">${student.tags[9]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[10] ? `<span class="spanTD">${student.tags[10]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[11] ? `<span class="spanTD">${student.tags[11]}</span>`: `<span style="display: none"></span>`}
+                                ${student.tags[12] ? `<span class="spanTD">${student.tags[12]}</span>`: `<span style="display: none"></span>`}
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
+        }
+    }
+    
 }
 
 
@@ -713,6 +826,10 @@ function deleteAll() {
     cbxMovingJobTrueInput.checked = false;
     var cbxMovingJobFalseInput = document.getElementById('cbxMovingJobFalse');
     cbxMovingJobFalseInput.checked = false;
+    var slctCountry = document.getElementById('slctCountry');
+    slctCountry.value = "";
+    var slctCity = document.getElementById('slctCity');
+    slctCity.value = "";
     cnt_span.innerHTML = '';
     tmpLiText = [];
     liTextArr = [];
