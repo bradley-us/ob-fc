@@ -24,6 +24,7 @@
 }
 
 .square {
+    overflow: auto;
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
